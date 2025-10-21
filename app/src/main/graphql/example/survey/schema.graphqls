@@ -1,0 +1,22 @@
+type Mail {
+	id: ID!
+	email: String!
+	stayTimer: Int
+}
+
+type MailCodePayload {
+	mail: Mail
+}
+
+type Mutation {
+	mailCode(email: String!): MailCodePayload
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
+
+type Query {
+	_empty: String
+}
