@@ -13,12 +13,11 @@ This project is inspired by the principles of **SCI (Science of Creative Intelli
 
 By reflecting SCI principles, Tour App aims to create not just a functional product, but a harmonious and meaningful experience for travelers and developers alike.
 
-# Tour App (Android, Jetpack Compose)
+## Tour App (Android, Jetpack Compose)
 
-**Tour App** is a modern traveling application for Android. It allows users to discover and book tours, manage their travel profile, and experience smart features like AI-generated profile photos. The app is built with Jetpack Compose for a beautiful UI, and uses WorkManager for reliable background tasks such as syncing tour data and uploading profile photos.
+##Tour App** is a modern traveling application for Android. It allows users to discover and book tours, manage their travel profile, and experience smart features like AI-generated profile photos. The app is built with Jetpack Compose for a beautiful UI, and uses WorkManager for reliable background tasks such as syncing tour data and uploading profile photos.
 
-Whether you're planning your next adventure or just browsing, Tour App makes travel easy, secure, and fun. Log in to see personalized tours, update your profile, and let AI help you create a unique travel identity!
-
+## Whether you're planning your next adventure or just browsing, Tour App makes travel easy, secure, and fun. Log in to see personalized tours, update your profile, and let AI help you create a unique travel identity!
 ---
 
 ## Features
