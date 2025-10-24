@@ -1,4 +1,3 @@
-import org.gradle.declarative.dsl.schema.FqName.Empty.packageName
 
 plugins {
     alias(libs.plugins.android.application)
@@ -48,9 +47,11 @@ android {
 
 }
 dependencies {
+    // Navigation 3
     implementation("androidx.navigation3:navigation3-runtime:1.0.0-alpha10")
     implementation("androidx.navigation3:navigation3-ui-android:1.0.0-alpha10")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0-alpha04")
+
     implementation("androidx.room:room-runtime:2.8.2")
     implementation("androidx.room:room-ktx:2.8.2")
     ksp("androidx.room:room-compiler:2.8.2")
@@ -58,7 +59,9 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.5")
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
 //A Retrofit Converter which uses Gson for serialization
+
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.2.1")
 //An image loading library for Android and Compose Multiplatform.
     implementation("androidx.work:work-runtime-ktx:2.10.5")
     implementation("io.coil-kt.coil3:coil-compose:3.3.0")
