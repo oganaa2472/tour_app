@@ -27,7 +27,10 @@ import androidx.compose.ui.graphics.painter.Painter
 import coil3.request.crossfade
 import com.example.survey.R
 import com.example.survey.ui.viewmodel.AuthViewModel
+import com.example.survey.ui.viewmodel.AuthUiState
+import com.example.survey.ui.viewmodel.UserInfo
 import com.example.survey.ui.viewmodel.ProfileViewModel
+import com.example.survey.ui.viewmodel.ProfileUiState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,6 +54,33 @@ fun ProfileScreen(
             // Could trigger a refresh or toast message
         }
     }
+
+    ProfileScreenContent(
+        onLogout = onLogout,
+        onBackClick = onBackClick,
+        authUiState = authUiState,
+        profileUiState = profileUiState,
+        currentUser = currentUser,
+        onGenerateAI = { prompt -> profileViewModel.generateAIImage(prompt) },
+        onClearError = { profileViewModel.clearError() }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ProfileScreenContent(
+    onLogout: () -> Unit,
+    onBackClick: () -> Unit,
+    authUiState: AuthUiState,
+    profileUiState: ProfileUiState,
+    currentUser: UserInfo?,
+    onGenerateAI: (String) -> Unit,
+    onClearError: () -> Unit
+) {
+    val context = LocalContext.current
+
+    var showAIPrompt by remember { mutableStateOf(false) }
+    var aiPrompt by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
@@ -294,7 +324,7 @@ fun ProfileScreen(
                             )
                             Spacer(modifier = Modifier.height(12.dp))
                             Button(
-                                onClick = { profileViewModel.clearError() },
+                                onClick = { onClearError() },
                                 modifier = Modifier.align(Alignment.End)
                             ) {
                                 Text("Dismiss")
@@ -345,7 +375,7 @@ fun ProfileScreen(
                     onClick = {
                         if (aiPrompt.isNotBlank()) {
                             showAIPrompt = false
-                            profileViewModel.generateAIImage(aiPrompt)
+                            onGenerateAI(aiPrompt)
                         }
                     },
                     enabled = aiPrompt.isNotBlank()
