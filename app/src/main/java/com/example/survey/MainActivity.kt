@@ -14,18 +14,23 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
+import com.example.survey.data.domain.repository.ImagenRepository
 import com.example.survey.data.domain.usecases.*
 import com.example.survey.data.local.database.TourDatabase
 import com.example.survey.data.local.prefernces.UserPreferences
+import com.example.survey.data.remote.ai.ServiceLocator
 import com.example.survey.data.remote.network.NetworkModule
 import com.example.survey.data.repository.TourRepository
 import com.example.survey.ui.navigation.Screen
 import com.example.survey.ui.viewmodel.AuthViewModel
+import com.example.survey.ui.viewmodel.ProfileViewModel
 import com.example.survey.ui.viewmodel.TourViewModel
-import com.tourexplorer.app.ui.navigation.TourNavigation
+import com.example.survey.ui.navigation.TourNavigation
+import com.google.firebase.ai.type.PublicPreviewAPI
 
 
 class MainActivity : ComponentActivity() {
+    @OptIn(PublicPreviewAPI::class)
     @SuppressLint("ViewModelConstructorInComposable")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +44,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
 
-                    val (tourViewModel, authViewModel) = remember {
+                    val (tourViewModel, authViewModel, profileViewModel) = remember {
                         val database = TourDatabase.getDatabase(this)
                         val tourDao = database.tourDao()
                         val bookingDao = database.bookingDao()
@@ -69,7 +74,12 @@ class MainActivity : ComponentActivity() {
                             getBookmarkedToursUseCase
                         )
                         val authViewModel = AuthViewModel(userPreferences, tourApiService)
-                        tourViewModel to authViewModel
+                        
+                        // Create Imagen repository using ServiceLocator
+                        val imagenRepository: ImagenRepository = ServiceLocator.getImagenRepository()
+                        val profileViewModel = ProfileViewModel(userPreferences, tourApiService, imagenRepository, this)
+                        
+                        Triple(tourViewModel, authViewModel, profileViewModel)
                     }
 
                     val isLoggedIn by authViewModel.isLoggedIn.collectAsStateWithLifecycle()
@@ -81,7 +91,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-                    TourNavigation(navController, tourViewModel, authViewModel)
+                    TourNavigation(navController, tourViewModel, authViewModel, profileViewModel)
                 }
             }
         }

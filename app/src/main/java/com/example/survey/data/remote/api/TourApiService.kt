@@ -2,6 +2,7 @@ package com.example.survey.data.remote.api
 
 import com.example.survey.data.remote.dto.*
 import com.google.gson.annotations.SerializedName
+import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -18,7 +19,19 @@ interface TourApiService {
     @POST("users/login")
     suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
-    @PATCH("users/updateMe") // Add this endpoint
+    @GET("users/me")
+    suspend fun getCurrentUser(
+        @Header("Authorization") token: String
+    ): Response<ApiResponse<UserDto>>
+
+    @Multipart
+    @PATCH("users/updateMe")
+    suspend fun updateProfilePhoto(
+        @Header("Authorization") token: String,
+        @Part photo: MultipartBody.Part
+    ): Response<UpdateUserResponse>
+
+    @PATCH("users/updateMe")
     suspend fun updateMe(
         @Header("Authorization") token: String,
         @Body user: UserDto

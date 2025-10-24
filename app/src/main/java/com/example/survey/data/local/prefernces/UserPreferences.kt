@@ -42,6 +42,10 @@ class UserPreferences(private val context: Context) {
         preferences[USER_NAME]
     }
 
+    val userPhoto: Flow<String?> = context.dataStore.data.map { preferences ->
+        preferences[PHOTO]
+    }
+
     val userToken: Flow<String?> = context.dataStore.data.map { preferences ->
         preferences[TOKEN]
     }
@@ -107,6 +111,12 @@ class UserPreferences(private val context: Context) {
     suspend fun updateLastSyncTime() {
         context.dataStore.edit { preferences ->
             preferences[LAST_SYNC_TIME] = System.currentTimeMillis()
+        }
+    }
+
+    suspend fun updateUserPhoto(photoUrl: String) {
+        context.dataStore.edit { preferences ->
+            preferences[PHOTO] = photoUrl
         }
     }
 }

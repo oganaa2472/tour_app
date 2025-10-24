@@ -28,10 +28,11 @@ class AuthViewModel(
     val currentUser: StateFlow<UserInfo?> = combine(
         userPreferences.userId,
         userPreferences.userEmail,
-        userPreferences.userName
-    ) { userId, email, name ->
+        userPreferences.userName,
+        userPreferences.userPhoto
+    ) { userId, email, name, photo ->
         if (userId != null && email != null && name != null) {
-            UserInfo(userId, email, name)
+            UserInfo(userId, email, name, photo)
         } else null
     }.stateIn(
         scope = viewModelScope,
@@ -106,5 +107,6 @@ data class AuthUiState(
 data class UserInfo(
     val id: String,
     val email: String,
-    val name: String
+    val name: String,
+    val photo: String? = null
 )

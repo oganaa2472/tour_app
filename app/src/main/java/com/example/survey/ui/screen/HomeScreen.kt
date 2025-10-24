@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -23,6 +24,7 @@ import com.tourexplorer.app.ui.component.TourCard
 fun HomeScreen(
     onTourClick: (String) -> Unit,
     onBookmarksClick: () -> Unit,
+    onProfileClick: () -> Unit,
     viewModel: TourViewModel
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -33,6 +35,9 @@ fun HomeScreen(
             TopAppBar(
                 title = { Text("Tour Explorer") },
                 actions = {
+                    IconButton(onClick = onProfileClick) {
+                        Icon(Icons.Default.Person, contentDescription = "Profile")
+                    }
                     IconButton(onClick = onBookmarksClick) {
                         Icon(Icons.Default.Favorite, contentDescription = "Bookmarks")
                     }

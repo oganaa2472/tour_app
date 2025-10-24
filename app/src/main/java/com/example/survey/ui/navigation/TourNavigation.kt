@@ -1,4 +1,4 @@
-package com.tourexplorer.app.ui.navigation
+package com.example.survey.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -8,8 +8,10 @@ import com.example.survey.ui.navigation.Screen
 import com.example.survey.ui.screen.BookmarksScreen
 import com.example.survey.ui.screen.HomeScreen
 import com.example.survey.ui.screen.LoginScreen
+import com.example.survey.ui.screen.ProfileScreen
 import com.example.survey.ui.screen.TourDetailScreen
 import com.example.survey.ui.viewmodel.AuthViewModel
+import com.example.survey.ui.viewmodel.ProfileViewModel
 import com.example.survey.ui.viewmodel.TourViewModel
 
 
@@ -17,7 +19,8 @@ import com.example.survey.ui.viewmodel.TourViewModel
 fun TourNavigation(
     navController: NavHostController,
     tourViewModel: TourViewModel,
-    authViewModel: AuthViewModel
+    authViewModel: AuthViewModel,
+    profileViewModel: ProfileViewModel
 ) {
     NavHost(
         navController = navController,
@@ -30,6 +33,9 @@ fun TourNavigation(
                 },
                 onBookmarksClick = {
                     navController.navigate(Screen.Bookmarks.route)
+                },
+                onProfileClick = {
+                    navController.navigate(Screen.Profile.route)
                 },
                 viewModel = tourViewModel
             )
@@ -69,6 +75,22 @@ fun TourNavigation(
                     navController.popBackStack()
                 },
                 viewModel = tourViewModel
+            )
+        }
+
+        composable(Screen.Profile.route) {
+            ProfileScreen(
+                onLogout = {
+                    authViewModel.logout()
+                    navController.navigate(Screen.Login.route) {
+                        popUpTo(navController.graph.id) { inclusive = true }
+                    }
+                },
+                onBackClick = {
+                    navController.popBackStack()
+                },
+                authViewModel = authViewModel,
+                profileViewModel = profileViewModel
             )
         }
     }
