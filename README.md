@@ -2,13 +2,6 @@
 
 ## App Screenshots
 
-Below are key screens from the Tour App:
-
-
-### Log Screen
-## 📱 Screens Overview
-
-### 🧾 Login Screen
 ![Login Screen](./login.png)
 
 ### 👤 Profile Screen
