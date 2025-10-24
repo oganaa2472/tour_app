@@ -2,19 +2,20 @@
 
 ## App Screenshots
 
-![Login Screen](./login.png)
+
+<img src="./login.png" alt="Login Screen" width="300"/>
 
 ### 👤 Profile Screen
-![Profile Screen](./profile.png)
+<img src="./profile.png" alt="Profile Screen" width="300"/>
 
 ### 🔖 Tour Bookmark Screen
-![Tour Bookmark Screen](./bookmark.png)
+<img src="./bookmark.png" alt="Tour Bookmark Screen" width="300"/>
 
 ### 🗺 Tour List Screen
-![Tour List Screen](./tour-list.png)
+<img src="./tour-list.png" alt="Tour List Screen" width="300"/>
 
 ### 📄 Tour Detail Screen
-![Tour Detail Screen](./tour-detail.png)
+<img src="./tour-detail.png" alt="Tour Detail Screen" width="300"/>
 ---
 
 ## SCI Reflection: Wholeness & Harmony
