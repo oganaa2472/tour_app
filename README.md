@@ -1,3 +1,17 @@
+---
+
+## SCI Reflection: Wholeness & Harmony
+
+This project is inspired by the principles of **SCI (Science of Creative Intelligence)**, emphasizing wholeness, harmony, and meaningful connection in technology and design.
+
+**Wholeness** is reflected in the app's unified experience—bringing together travel discovery, profile management, and smart features into a seamless journey for the user. Every component, from UI to background tasks, is designed to work in harmony, supporting a balanced and enjoyable travel experience.
+
+**Meaningful SCI Principle Connection:**
+- The architecture encourages clarity and simplicity, making the codebase easy to understand and extend.
+- Features like AI-generated profile photos and background syncing are integrated thoughtfully, supporting the user's needs without distraction.
+- The app's structure and flow promote a sense of completeness, where every part contributes to the whole.
+
+By reflecting SCI principles, Tour App aims to create not just a functional product, but a harmonious and meaningful experience for travelers and developers alike.
 
 # Tour App (Android, Jetpack Compose)
 

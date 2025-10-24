@@ -22,7 +22,7 @@ class SyncToursWorker(
             Log.d(TAG, "Start sync, attempt=$runAttemptCount")
 
             // TODO: Inject and call your repository to refresh tours from network
-            // e.g., TourRepository.refreshTours()
+//             e.g., TourRepository.refreshTours()
             // Simulate some work
             delay(500)
             Log.d(TAG, "Sync success")
