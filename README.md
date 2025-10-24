@@ -1,5 +1,25 @@
 ---
 
+## App Screenshots
+
+Below are key screens from the Tour App:
+
+### Log Screen
+![Log Screen](log.png)
+
+### Profile Screen
+![Profile Screen](profile.png)
+
+### Tour Screen
+![Tour Screen](tour.png)
+
+### Tour List Screen
+![Tour List Screen](tour-list.png)
+
+### Detail Screen
+![Detail Screen](detail.png)
+---
+
 ## SCI Reflection: Wholeness & Harmony
 
 This project is inspired by the principles of **SCI (Science of Creative Intelligence)**, emphasizing wholeness, harmony, and meaningful connection in technology and design.
