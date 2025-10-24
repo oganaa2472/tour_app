@@ -6,19 +6,19 @@ Below are key screens from the Tour App:
 
 
 ### Log Screen
-![Log Screen](log.png)
+![Log Screen](login.png)
 
-### Profile Screen
+### P
 ![Profile Screen](profile.png)
 
-### Tour Screen
-![Tour Screen](tour.png)
+### Tour Bookmark
+![Tour Screen](bookmark.png)
 
 ### Tour List Screen
 ![Tour List Screen](tour-list.png)
 
 ### Detail Screen
-![Detail Screen](detail.png)
+![Detail Screen](tour-detail.png)
 ---
 
 ## SCI Reflection: Wholeness & Harmony
