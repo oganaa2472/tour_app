@@ -33,9 +33,9 @@ By reflecting SCI principles, Tour App aims to create not just a functional prod
 
 ## Tour App (Android, Jetpack Compose)
 
-##Tour App** is a modern traveling application for Android. It allows users to discover and book tours, manage their travel profile, and experience smart features like AI-generated profile photos. The app is built with Jetpack Compose for a beautiful UI, and uses WorkManager for reliable background tasks such as syncing tour data and uploading profile photos.
+**Tour App** is a modern traveling application for Android. It allows users to discover and book tours, manage their travel profile, and experience smart features like AI-generated profile photos. The app is built with Jetpack Compose for a beautiful UI, and uses WorkManager for reliable background tasks such as syncing tour data and uploading profile photos.
 
-## Whether you're planning your next adventure or just browsing, Tour App makes travel easy, secure, and fun. Log in to see personalized tours, update your profile, and let AI help you create a unique travel identity!
+Whether you're planning your next adventure or just browsing, Tour App makes travel easy, secure, and fun. Log in to see personalized tours, update your profile, and let AI help you create a unique travel identity!
 ---
 
 ## Features
@@ -74,6 +74,56 @@ By reflecting SCI principles, Tour App aims to create not just a functional prod
 - `app/src/main/java/com/example/survey/work/WorkSchedulers.kt` – Helpers to schedule WorkManager jobs
 - `app/src/main/java/com/example/survey/work/SyncToursWorker.kt` – Periodic tour sync worker
 - `app/src/main/java/com/example/survey/work/UploadProfilePhotoWorker.kt` – One-off profile photo upload worker
+
+## Package structure
+
+```text
+com.example.survey
+├─ data
+│  ├─ ai
+│  ├─ domain
+│  │  ├─ model
+│  │  ├─ repository
+│  │  └─ usecases
+│  ├─ local
+│  │  ├─ converter
+│  │  ├─ dao
+│  │  ├─ database
+│  │  ├─ entity
+│  │  └─ prefernces
+│  └─ remote
+│     ├─ ai
+│     ├─ api
+│     ├─ dto
+│     ├─ network
+│     ├─ repository
+│     └─ utils
+├─ di
+├─ ui
+│  ├─ components
+│  ├─ navigation
+│  ├─ screen
+│  ├─ state
+│  ├─ theme
+│  └─ viewmodel
+├─ util
+└─ work
+```
+
+Key packages
+- data.remote.api – Retrofit interfaces (e.g., TourApiService)
+- data.remote.dto – Network DTOs
+- data.remote.network – Networking config and modules
+- data.remote.repository – Remote-specific repositories (e.g., Firebase image upload)
+- data.local.dao/database/entity – Room database layer
+- data.domain.model/repository/usecases – Domain models and use cases
+- ui.screen – Compose screens
+- ui.viewmodel – ViewModels for screens and features
+- ui.navigation – Navigation graph and destinations
+- ui.components – Reusable UI components
+- work – WorkManager workers and schedulers
+- di – Dependency injection setup
+- util – Shared utilities
 
 ## App structure (tree)
 
